@@ -53,7 +53,7 @@ app.get("/", (req, res)=>{
     <title>Render back-end tienda</title>
     </head>
     <body>
-    <h3> Back de la tienda en linea</h3>
+    <h3> Back-end de la tienda en linea</h3>
     </body>
     </html>
     `;
