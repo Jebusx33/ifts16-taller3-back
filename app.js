@@ -46,6 +46,20 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get("/", (req, res)=>{
+    const htmlResponse =`
+    <html>
+    <head>
+    <title>Render back-end tienda</title>
+    </head>
+    <body>
+    <h3> Back de la tienda en linea</h3>
+    </body>
+    </html>
+    `;
+    res.send(htmlResponse);
+    });
+
 app.use('/api', cliente_routes);
 app.use('/api', admin_routes);
 app.use('/api', producto_routes);
