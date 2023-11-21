@@ -1,9 +1,15 @@
 'use strict'
 var Cliente = require('../models/cliente');
-var bcrytp = require('bcrypt-nodejs')
+//var Venta = require('../models/venta');
+//var Dventa = require('../models/dventa');
+//var Contacto = require('../models/contacto');
+//var Review = require('../models/review');
+var bcrypt = require('bcrypt-nodejs');
 var jwt = require('../helpers/jwt');
+
+var Direccion = require('../models/direccion');
 const admin = require('../models/admin');
-const cliente = require('../models/cliente');
+
 
 //Registro Cliente
 const registro_cliente = async function(req, res) {
@@ -445,7 +451,6 @@ const obtener_review_producto_cliente  = async function(req,res){
     let reg = await Review.find({producto:id}).sort({createdAt:-1});
     res.status(200).send({data:reg});
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////
 const obtener_reviews_cliente  = async function(req,res){
     if(req.user){
         let id = req.params['id'];

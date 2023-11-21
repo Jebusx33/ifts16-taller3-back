@@ -3,10 +3,10 @@ var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
-var port = process.env.Port || 3000;
+var port = process.env.Port || 4201;
 
 const cors = require('cors')
-const whiteList = ['http://localhost:3000','http://localhost:4200', 'http://localhost:4201', 'http://localhost:14185']
+const whiteList = ['http://localhost:4200', 'http://localhost:4201', 'http://localhost:14185']
 var admin_routes = require('./routes/admin');
 var cliente_routes = require('./routes/cliente');
 var producto_routes = require('./routes/producto');
@@ -45,20 +45,6 @@ app.use((req, res, next) => {
     res.header('allow', 'GET, PUT, POST, DELETE, OPTION');
     next();
 });
-
-app.get("/", (req, res)=>{
-    const htmlResponse =`
-    <html>
-    <head>
-    <title>Render back-end tienda</title>
-    </head>
-    <body>
-    <h3> Back de la tienda en linea</h3>
-    </body>
-    </html>
-    `;
-    res.send(htmlResponse);
-    });
 
 app.use('/api', cliente_routes);
 app.use('/api', admin_routes);
